@@ -44,3 +44,12 @@ app.listen(PORT, () => {
   console.log(`Backend rodando na porta ${PORT}`);
   console.log(`CORS habilitado para: ${corsOptions.origin}`);
 });
+
+app.get("/status", (req, res) => {
+  res.json({
+    status: "online",
+    versao: "1.1.0",
+    total_noticias: noticias.length,
+    uptime: process.uptime()
+  });
+});
